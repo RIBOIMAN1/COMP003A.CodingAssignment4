@@ -14,6 +14,7 @@ namespace COMP003A.CodingAssignment4
             int inventoryManagement;
             string productName;
             int productQuantity;
+            List<string> allProductNames = new List<string>();
 
             Console.WriteLine("Welcome to the Inventory Management System!");
             while (true)
@@ -43,9 +44,18 @@ namespace COMP003A.CodingAssignment4
                         {
                             Console.Write("Enter product name: ");
                             productName = Console.ReadLine();
+                            allProductNames.Add(productName);
                             Console.Write("Enter product quantity: ");
                             productQuantity = int.Parse(Console.ReadLine());
                             Console.WriteLine("Product added successfully!");
+                        }
+                        else if (inventoryManagement == 2)
+                        {
+                            Console.Write("What product do you want to update the quantity of? ");
+                            productName = Console.ReadLine();
+                            Console.Write("What is your new quantity? ");
+                            productQuantity = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Product quantity updated successfully!");
                         }
                     }
                 }
