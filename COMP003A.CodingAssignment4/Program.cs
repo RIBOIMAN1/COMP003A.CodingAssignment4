@@ -11,27 +11,50 @@ namespace COMP003A.CodingAssignment4
         {
             int items;
             int dataStorageType;
+            int inventoryManagement;
+            string productName;
+            int productQuantity;
 
             Console.WriteLine("Welcome to the Inventory Management System!");
-            Console.Write("Choose data storage type: ");
-            items = int.Parse(Console.ReadLine());
-            if (items != 2 && items != 1)
+            while (true)
             {
-                Console.WriteLine("This is not a valid input. Try again!");
-            }
-            else if (items == 1)
-            {
-                Console.WriteLine("Sorry, I didn't use arrays in this code. Please select choice 2.");
-            }
-            else
-            {
-                Console.WriteLine("Inventory Management System Menu:");
-                Console.WriteLine("Choose data storage type:");
-                Console.WriteLine("1. Add a Product");
-                Console.WriteLine("2. Update Product Quantity");
-                Console.WriteLine("3. View Inventory Summary");
-                Console.WriteLine("4. Exit");
-                Console.Write("Enter you choice: ");
+                try
+                {
+                    Console.Write("Choose data storage type: ");
+                    items = int.Parse(Console.ReadLine());
+                    if (items != 1 && items != 2)
+                    {
+                        Console.WriteLine("This is not a valid input. Try again!");
+                    }
+                    else if (items == 1)
+                    {
+                        Console.WriteLine("Sorry, I didn't use arrays in this code. Please select choice 2.");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                Console.Write("Choose data storage type: ");
+                items = int.Parse(Console.ReadLine());
+                else
+                {
+                    Console.WriteLine("Inventory Management System Menu:");
+                    Console.WriteLine("1. Add a Product");
+                    Console.WriteLine("2. Update Product Quantity");
+                    Console.WriteLine("3. View Inventory Summary");
+                    Console.WriteLine("4. Exit");
+                    Console.Write("Enter you choice: ");
+                    inventoryManagement = int.Parse(Console.ReadLine());
+                    if (inventoryManagement == 1)
+                    {
+                        Console.Write("Enter product name: ");
+                        productName = Console.ReadLine();
+                        Console.Write("Enter product quantity: ");
+                        productQuantity = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Product added successfully!");
+                    }
+                }
             }
         }
     }
