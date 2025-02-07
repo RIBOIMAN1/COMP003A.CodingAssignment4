@@ -40,7 +40,7 @@ namespace COMP003A.CodingAssignment4
                         Console.WriteLine("2. Update Product Quantity");
                         Console.WriteLine("3. View Inventory Summary");
                         Console.WriteLine("4. Exit");
-                        Console.Write("Enter you choice: ");
+                        Console.Write("Enter your choice: ");
                         inventoryManagement = int.Parse(Console.ReadLine());
                         if (inventoryManagement == 1)
                         {
