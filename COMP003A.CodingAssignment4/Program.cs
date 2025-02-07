@@ -56,7 +56,16 @@ namespace COMP003A.CodingAssignment4
                         {
                             Console.Write("What product do you want to update the quantity of? ");
                             productName = Console.ReadLine();
-                            Console.Write("What is your new quantity? ");
+							int index = allProductNames.IndexOf(productName);
+							if (index != -1)
+							{
+								allProductQuantities[index] = 100;
+							}
+							else
+							{
+								Console.WriteLine("Product not found.");
+							}
+							Console.Write("What is your new quantity? ");
 							productQuantity = int.Parse(Console.ReadLine());
 							allProductQuantities.Add(productQuantity);
 							Console.WriteLine("Product quantity updated successfully!\n");
@@ -68,7 +77,9 @@ namespace COMP003A.CodingAssignment4
                             {
 								Console.WriteLine($"- {allProductNames[i]}: {allProductQuantities[i]}");
 							}
-
+                            Console.WriteLine($"Total Products: {allProductNames.Count}");
+                            Console.WriteLine($"Total Quantity: {allProductQuantities.Sum()}");
+                            Console.WriteLine($"Average Quantity: {allProductQuantities.Average():F2}");
 						}
                         else if (inventoryManagement == 4)
                         {
