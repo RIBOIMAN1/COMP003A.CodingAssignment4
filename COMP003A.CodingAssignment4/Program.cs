@@ -15,8 +15,10 @@ namespace COMP003A.CodingAssignment4
             string productName;
             int productQuantity;
             List<string> allProductNames = new List<string>();
+			List<int> allProductQuantities = new List<int>();
+			int totalProducts = allProductQuantities.Sum();
 
-            Console.WriteLine("Welcome to the Inventory Management System!");
+			Console.WriteLine("Welcome to the Inventory Management System!");
             while (true)
             {
                 try
@@ -33,7 +35,7 @@ namespace COMP003A.CodingAssignment4
                     }
                     else
                     {
-                        Console.WriteLine("Inventory Management System Menu:");
+                        Console.WriteLine("\nInventory Management System Menu:");
                         Console.WriteLine("1. Add a Product");
                         Console.WriteLine("2. Update Product Quantity");
                         Console.WriteLine("3. View Inventory Summary");
@@ -47,6 +49,7 @@ namespace COMP003A.CodingAssignment4
                             allProductNames.Add(productName);
                             Console.Write("Enter product quantity: ");
                             productQuantity = int.Parse(Console.ReadLine());
+                            allProductQuantities.Add(productQuantity);
                             Console.WriteLine("Product added successfully!");
                         }
                         else if (inventoryManagement == 2)
@@ -54,8 +57,23 @@ namespace COMP003A.CodingAssignment4
                             Console.Write("What product do you want to update the quantity of? ");
                             productName = Console.ReadLine();
                             Console.Write("What is your new quantity? ");
-                            productQuantity = int.Parse(Console.ReadLine());
-                            Console.WriteLine("Product quantity updated successfully!");
+							productQuantity = int.Parse(Console.ReadLine());
+							allProductQuantities.Add(productQuantity);
+							Console.WriteLine("Product quantity updated successfully!\n");
+                        }
+                        else if (inventoryManagement == 3)
+                        {
+                            Console.WriteLine("\nInventory summary: ");
+                            for (int i = 0; i < allProductNames.Count; i++)
+                            {
+								Console.WriteLine($"- {allProductNames[i]}: {allProductQuantities[i]}");
+							}
+
+						}
+                        else if (inventoryManagement == 4)
+                        {
+                            Console.WriteLine("Goodbye!");
+                            break;
                         }
                     }
                 }
