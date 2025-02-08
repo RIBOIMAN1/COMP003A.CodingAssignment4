@@ -59,16 +59,15 @@ namespace COMP003A.CodingAssignment4
 							int index = allProductNames.IndexOf(productName);
 							if (index != -1)
 							{
-								allProductQuantities[index] = 100;
+								Console.Write("What is your new quantity? ");
+								productQuantity = int.Parse(Console.ReadLine());
+								allProductQuantities[index] = productQuantity;
+								Console.WriteLine("Product quantity updated successfully!\n");
 							}
 							else
 							{
 								Console.WriteLine("Product not found.");
 							}
-							Console.Write("What is your new quantity? ");
-							productQuantity = int.Parse(Console.ReadLine());
-							allProductQuantities.Add(productQuantity);
-							Console.WriteLine("Product quantity updated successfully!\n");
                         }
                         else if (inventoryManagement == 3)
                         {
