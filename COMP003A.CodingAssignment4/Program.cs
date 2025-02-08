@@ -45,7 +45,7 @@ namespace COMP003A.CodingAssignment4
                     {
                         try
                         {
-                            Console.Write("Enter product name: ");
+                            Console.Write("\nEnter product name: ");
                             productName = Console.ReadLine();
                             allProductNames.Add(productName);
                             Console.Write("Enter product quantity: ");
@@ -62,7 +62,7 @@ namespace COMP003A.CodingAssignment4
                     {
                         try
                         {
-                            Console.Write("What product do you want to update the quantity of? ");
+                            Console.Write("\nWhat product do you want to update the quantity of? ");
                             productName = Console.ReadLine();
                             int index = allProductNames.IndexOf(productName);
                             if (index != -1)
@@ -103,7 +103,7 @@ namespace COMP003A.CodingAssignment4
                     else if (inventoryManagement == 4)
                     {
                         Console.WriteLine("\nGoodbye!");
-                        break;
+                        return;
                     }
                     else
                     {
