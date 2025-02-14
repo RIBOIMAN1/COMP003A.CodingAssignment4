@@ -52,62 +52,15 @@ namespace COMP003A.CodingAssignment4
         {
             if (inventoryManagement == 1)
             {
-                try
-                {
-                    Console.Write("\nEnter product name: ");
-                    productName = Console.ReadLine();
-                    allProductNames.Add(productName);
-                    Console.Write("Enter product quantity: ");
-                    productQuantity = int.Parse(Console.ReadLine());
-                    allProductQuantities.Add(productQuantity);
-                    Console.WriteLine("Product added successfully!");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unable to add product, try again.");
-                }
+                choice1();
             }
             else if (inventoryManagement == 2)
             {
-                try
-                {
-                    Console.Write("\nWhat product do you want to update the quantity of? ");
-                    productName = Console.ReadLine();
-                    int index = allProductNames.IndexOf(productName);
-                    if (index != -1)
-                    {
-                        Console.Write("What is your new quantity? ");
-                        productQuantity = int.Parse(Console.ReadLine());
-                        allProductQuantities[index] = productQuantity;
-                        Console.WriteLine("Product quantity updated successfully!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Product not found.");
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unable to update product quantity, try again.");
-                }
+                choice2();
             }
             else if (inventoryManagement == 3)
             {
-                try
-                {
-                    Console.WriteLine("\nInventory summary: ");
-                    for (int i = 0; i < allProductNames.Count; i++)
-                    {
-                        Console.WriteLine($"- {allProductNames[i]}: {allProductQuantities[i]}");
-                    }
-                    Console.WriteLine($"Total Products: {allProductNames.Count}");
-                    Console.WriteLine($"Total Quantity: {allProductQuantities.Sum()}");
-                    Console.WriteLine($"Average Quantity: {allProductQuantities.Average():F2}");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unable to show display summary, try again.");
-                }
+                choice3();
             }
             else if (inventoryManagement == 4)
             {
@@ -118,6 +71,74 @@ namespace COMP003A.CodingAssignment4
             {
                 Console.WriteLine("You must choose between choices 1 and 4, try again.");
             }
-        }
+            static void choice1()
+            {
+                try
+                {
+                    Console.Write("\nEnter product name: ");
+                    string productName = Console.ReadLine();
+                    allProductNames.Add(productName);
+                    Console.Write("Enter product quantity: ");
+                    int productQuantity = int.Parse(Console.ReadLine());
+                    allProductQuantities.Add(productQuantity);
+                    Console.WriteLine("Product added successfully!");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Unable to add product, try again.");
+                }
+            }
+            static void choice2()
+            {
+				try
+				{
+					Console.Write("\nWhat product do you want to update the quantity of? ");
+					string productName = Console.ReadLine();
+					int index = allProductNames.IndexOf(productName);
+					if (index != -1)
+					{
+						Console.Write("What is your new quantity? ");
+						int productQuantity = int.Parse(Console.ReadLine());
+						allProductQuantities[index] = productQuantity;
+						Console.WriteLine("Product quantity updated successfully!");
+					}
+					else
+					{
+						Console.WriteLine("Product not found.");
+					}
+				}
+				catch (Exception)
+				{
+					Console.WriteLine("Unable to update product quantity, try again.");
+				}
+			}
+            static void choice3()
+            {
+				try
+				{
+					Console.WriteLine("\nInventory summary: ");
+					for (int i = 0; i < allProductNames.Count; i++)
+					{
+						Console.WriteLine($"- {allProductNames[i]}: {allProductQuantities[i]}");
+					}
+					Console.WriteLine($"Total Products: {allProductNames.Count}");
+					Console.WriteLine($"Total Quantity: {allProductQuantities.Sum()}");
+					Console.WriteLine($"Average Quantity: {allProductQuantities.Average():F2}");
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine("Unable to show display summary, try again.");
+				}
+			}
+			else if (inventoryManagement == 4)
+			{
+				Console.WriteLine("\nGoodbye!");
+				return;
+			}
+			else
+			{
+				Console.WriteLine("You must choose between choices 1 and 4, try again.");
+			}
+		}
     }
 }
