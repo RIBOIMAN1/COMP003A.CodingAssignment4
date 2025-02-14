@@ -9,16 +9,11 @@ namespace COMP003A.CodingAssignment4
     {
         static List<string> allProductNames = new List<string>();
 		static List<int> allProductQuantities = new List<int>();
-        static void Main(string[] args)
+		static bool runProgram = true;
+		static void Main(string[] args)
         {
-            // int items;
-            // int dataStorageType;
-            // int inventoryManagement;
-            // string productName;
-            // int productQuantity;
-
             Console.WriteLine("Welcome to the Inventory Management System!");
-            while (true)
+            while (runProgram)
             {
                 Menu();
                 int inventoryManagement = inventoryChoice();
@@ -65,12 +60,12 @@ namespace COMP003A.CodingAssignment4
             else if (inventoryManagement == 4)
             {
                 Console.WriteLine("\nGoodbye!");
-                return;
-            }
+                runProgram = false;
+			}
             else
             {
                 Console.WriteLine("You must choose between choices 1 and 4, try again.");
-            }
+			}
             static void choice1()
             {
                 try
@@ -129,15 +124,6 @@ namespace COMP003A.CodingAssignment4
 				{
 					Console.WriteLine("Unable to show display summary, try again.");
 				}
-			}
-			else if (inventoryManagement == 4)
-			{
-				Console.WriteLine("\nGoodbye!");
-				return;
-			}
-			else
-			{
-				Console.WriteLine("You must choose between choices 1 and 4, try again.");
 			}
 		}
     }
